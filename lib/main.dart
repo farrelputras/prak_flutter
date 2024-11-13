@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.black,
         scaffoldBackgroundColor: Colors.white,
-        fontFamily: 'Poppins',
       ),
       debugShowCheckedModeBanner: false,
       home: const AboutMe(),
@@ -31,8 +30,7 @@ class AboutMe extends StatelessWidget {
         body: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                    '/Users/zaidanfawwasz/Documents/Collagee/myapp/assets/background.jpg'), // Replace with your background image path
+                image: AssetImage('/prak_flutter/assets/bg.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -61,6 +59,7 @@ class AboutMe extends StatelessWidget {
                               const Text(
                                 'Fernandio Farrel Putra Susilo',
                                 style: TextStyle(
+                                  fontFamily: 'Montserrat',
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
@@ -83,21 +82,41 @@ class AboutMe extends StatelessWidget {
                               Container(
                                 padding: const EdgeInsets.all(16.0),
                                 decoration: BoxDecoration(
-                                  color: Colors.grey[200],
+                                  color: const Color.fromRGBO(66, 133, 244, 1),
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: const Text(
-                                  'Fun Fact: saat ngerjain tugas ini belum tidur 2 hari!',
+                                  'Fun Fact:\nLaptop blue screen 2x pas install AndroidStudio...',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontStyle: FontStyle.italic,
-                                    color: Colors.black,
+                                    color: Color.fromARGB(255, 255, 255, 255),
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
+                              const SizedBox(height: 8),
 
-                              const SizedBox(height: 32),
+                              // Contact
+                              ElevatedButton(
+                                child: const Text('Contact Me!'),
+                                onPressed: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) =>
+                                          AlertDialog(
+                                              title:
+                                                  const Text('Reach me out!'),
+                                              content: const Text(
+                                                  'Instagram: @farrelputras\nLinkedIn: Fernandio Farrel Putra Susilo'),
+                                              actions: [
+                                                TextButton(
+                                                    child: const Text('OK'),
+                                                    onPressed: () =>
+                                                        Navigator.pop(context))
+                                              ]));
+                                },
+                              )
                             ]))))));
   }
 }
